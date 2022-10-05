@@ -22,6 +22,6 @@ public class SerializeTest{
     ObjectInputStream ois = new ObjectInputStream(is);
     User storedUser = (User)ois.readObject();
     System.out.println(storedUser.username);
-    os.close();
+    ois.close();
   }
 }
